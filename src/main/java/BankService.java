@@ -22,24 +22,34 @@ public class BankService {
      * TODO: implement functionality to increase the user's balance by amount.
      * @param amount the amount to be deposited.
      */
-    public void deposit(double amount){
-
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Invalid deposit amount. Please enter a positive amount.");
+        }
     }
+
 
     /**
      * TODO: implement functionality to decrease the user's balance by an amount.
      * If a withdrawl would result in the user having a negative balance, the withdrawl should not occur.
      * @param amount the amount to be withdrawn.
      */
-    public void withdraw(double amount){
-
+    public void withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient balance.");
+        }
     }
 
     /**
      * TODO: return the balance.
      * @return the user's balance.
      */
-    public double getBalance(){
-        return 0;
+    public double getBalance() {
+        return balance;
     }
+
 }
